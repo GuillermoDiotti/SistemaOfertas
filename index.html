@@ -1,0 +1,201 @@
+<!--Guillermo Diotti 285578-->
+<!--Maria José Araujo 242489-->
+<!DOCTYPE html>
+<html lang ="es">
+	<head>
+		<meta charset="utf-8">
+		<title>Obligatorio</title>
+		<link rel="stylesheet" href="css/estilos.css"> 
+		<script src="js/clases.js"></script>
+		<script src="js/funciones.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<header>
+			<h2>Sistema de Ofertas</h2>
+		</header>
+		<nav>
+			<a href="#idDatos" class="link">Datos</a>
+			<a href="#idConsultas" class="link">Consultas</a>
+			<a href="#idConozcaAlEquipo" class="link">Conozca al equipo</a>
+		</nav>
+		<section>
+			<a id="idDatos">
+				<h3 class="títulos">Datos</h3>
+			</a>
+			<article>
+				<h3>Alta de Empleado</h3>
+				<form id="idFormularioEmpleado">
+					<label for="idNombreAltaEmpleado" >Nombre</label>
+					<input type="text" id="idNombreAltaEmpleado" name="nombre" maxlength="30" class="box" required><br>						
+					<label for="idCedula">Cédula</label>							
+					<input type="text" id="idCedula" name="cedula" class="box" required><br>	
+					<label for="idDepartamento">Departamento</label>
+					<select id="idDepartamento" name="departamento" class="select">	
+						<option value="Artigas" selected>Artigas</option>
+						<option value="Canelones">Canelones</option>
+						<option value="Cerro Largo">Cerro Largo</option>
+						<option value="Colonia">Colonia</option>
+						<option value="Durazno">Durazno</option>
+						<option value="Flores">Flores</option>
+						<option value="Florida">Florida</option>
+						<option value="Lavalleja">Lavalleja</option>
+						<option value="Maldonado">Maldonado</option>
+						<option value="Montevideo">Montevideo</option>
+						<option value="Paysandú">Paysandú</option>
+						<option value="Río Negro">Río Negro</option>
+						<option value="Rivera">Rivera</option>
+						<option value="Rocha">Rocha</option>
+						<option value="Salto">Salto</option>
+						<option value="SanJosé">San José</option>
+						<option value="Soriano">Soriano</option>
+						<option value="Tacuarembó">Tacuarembó</option>
+						<option value="TreintayTres">Treinta y Tres</option>
+					</select><br>	
+					<label for="idEdad">Edad</label>
+					<input type="number" name="edad" id="idEdad" min="18" max="60" class="box" required><br>	
+					<input type="button" id="idBotonAltaEmpleado" value="Agregar">
+				</form>
+				<h3>Alta de Rubro</h3>
+				<form id="idFormularioAltaRubro">			
+					<label for="idNombreAltaRubro">Nombre</label>	
+					<input type="text" id="idNombreAltaRubro" name="nombre" maxlength="30" class="box" required><br>
+					<label for="idDescripcion">Descripción</label>
+					<input type="text" id="idDescripcion" name="descripcion" maxlength="30" class="box" required><br>
+					<input type="button" id="idBotonAltaRubro" value="Agregar">
+				</form>
+				<h3>Alta de Oferta</h3>
+				<form id="idFormularioAltaOferta">
+					<label for="idEmpleadoOferta">Empleado</label>		
+					<select id="idEmpleadoOferta" name="empleado" class="select">
+						<option>Sin datos</option>
+					</select><br>
+					<label for="idRubroOferta">Rubro</label>
+					<select id="idRubroOferta" name="rubro" class="select">
+						<option>Sin datos</option>
+					</select><br>
+					<label for="idDetalle">Detalle</label>
+					<input type="text" id="idDetalle" name="detalle" maxlength="30" class="box" required><br>
+					<label for="idPrecio">Precio</label>
+					<input type="number" id="idPrecio" name="precio" min="0" class="box" required><br>
+					<input type="button" id="idBotonAltaOferta" value="Agregar">
+				</form>
+				<h3>Baja de Oferta</h3>
+				<form>
+					<label for="idBajaOferta">Oferta</label>
+					<select id="idBajaOferta" name="oferta" class="select">
+						<option>Sin datos</option>
+					</select><br>
+					<input type="button" id="idBotonBajaOferta" value="Borrar">
+				</form>
+			</article>
+			<a id="idConsultas">
+				<h3 class="títulos">Consultas</h3>
+			</a>
+			<article>
+				<h3>Ofertas de un rubro</h3>
+				<form>
+					<label for="idOfertasRubro">Rubro</label>
+					<select id="idOfertasRubro" name="rubro" class="select">
+						<option>Sin datos</option>
+					</select>
+					<input type="button" id="idBotonOfertasRubro" value="Consultar">
+					<p class="Orden">Orden:</p>
+					<input type="radio" id="idPrecioCreciente" name="orden" value="1" checked>
+					<label for="idPrecioCreciente" class="radio">precio creciente</label><br>
+					<input type="radio" id="idNombreDepartamentoCreciente" name="orden" value="2">
+					<label for="idNombreDepartamentoCreciente" class="radio">nombre departamento creciente</label><br>
+					<br>
+					<table class="table">
+						<thead>
+							<caption>
+								<p id="idCaption">Rubro: Sin Datos Promedio: Sin datos</p>
+							</caption>
+							<tr>
+								<th id = "idNombreTabla">Nombre Empleado</th>
+								<th id = "idDepartamentoTabla">Departamento</th>
+								<th id = "idDetalleTabla">Detalle de la oferta</th>
+								<th id = "idPrecioTabla">Precio</th>
+								<th id = "idTipoPrecio">Tipo</th>
+							</tr>
+						</thead>
+						<tbody id="idBodyTabla">
+						</tbody>
+					</table>
+				</form>
+				<h3>Rubros con Máxima Cantidad de Ofertas</h3>
+				<form>
+					<ul id="idListaAzul">
+						<li class="blue">Sin datos</li>
+					</ul>
+				</form>	
+				<h3>Rubros sin Ofertas</h3>
+				<form>
+					<ul id="idListaRojo">
+						<li class="red">Sin datos</li>
+					</ul>
+				</form>	
+				<h3>Tabla de Empleados</h3>
+				<form>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Nombre Empleado</th>
+								<th>Cédula</th>
+								<th>Departamento</th>
+								<th>Edad</th>
+								<th>Cantidad de ofertas</th>
+							</tr>
+						</thead>
+						<tbody id="idTablaEmpleados">
+						</tbody>
+					</table>
+				</form>
+			</article>
+			<a id="idConozcaAlEquipo">
+				<h3 class="títulos">Conozca al equipo</h3>
+			</a>
+			<article>
+				<h3>Primer integrante</h3>
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<img id="idFotoDiotti" src="img/Diotti.jpeg" alt="Foto Diotti">
+							</td>
+							<td>
+								<a href="https://www.ort.edu.uy/" target="_blank">
+									<img id="idFotoLogo1" src="IMG/LinkedIn.png" alt="Logo LinkedIn">
+								</a>
+							</td>
+							<td>
+								<p>Guillermo Diotti (285578)</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3>Segundo integrante</h3>
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<img id="idFotoAraujo" src="img/Araujo.jpg" alt="Foto Araujo">
+							</td>
+							<td>
+								<a href="https://www.linkedin.com/in/mar%C3%ADa-jos%C3%A9-ara%C3%BAjo-427b60204/" target="_blank">
+									<img id="idFotoLogo2" src="IMG/LinkedIn.png" alt="Logo LinkedIn">
+								</a>
+							</td>
+							<td>
+								<p>María José Araujo (242489)</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</article>
+		</section>
+		<footer>
+			<p>Programación I - Obligatorio 1er semestre 2022 - Universidad ORT Uruguay</p>
+		</footer>
+	</body>
+</html>
